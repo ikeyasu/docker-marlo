@@ -33,6 +33,7 @@ RUN cd /opt \
     && chown -R user:user MalmoPlatform/
 
 ENV MALMO_MINECRAFT_ROOT /opt/MalmoPlatform/Minecraft
+ENV MALMO_XSD_PATH /opt/MalmoPlatform/Schemas
 
 EXPOSE 10000
 ENV APP "lxterminal -e 'bash -c $MALMO_MINECRAFT_ROOT/launchClient.sh -port 10000'"

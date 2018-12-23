@@ -35,5 +35,11 @@ RUN cd /opt \
 ENV MALMO_MINECRAFT_ROOT /opt/MalmoPlatform/Minecraft
 ENV MALMO_XSD_PATH /opt/MalmoPlatform/Schemas
 
+RUN cd /opt/MalmoPlatform/Minecraft \
+    && sudo -u user ./gradlew setupDecompWorkspace \
+    && sudo -u user ./gradlew build
+
+COPY launchClient.sh /opt/MalmoPlatform/Minecraft/launchClient.sh
+
 EXPOSE 10000
 ENV APP "lxterminal -e 'bash -c $MALMO_MINECRAFT_ROOT/launchClient.sh -port 10000'"
